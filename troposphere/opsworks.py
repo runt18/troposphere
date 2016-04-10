@@ -46,7 +46,7 @@ class Recipes(AWSProperty):
 def validate_volume_type(volume_type):
     volume_types = ('standard', 'io1', 'gp2')
     if volume_type not in volume_types:
-        raise ValueError("VolumeType (given: %s) must be one of: %s" % (
+        raise ValueError("VolumeType (given: {0!s}) must be one of: {1!s}".format(
             volume_type, ', '.join(volume_types)))
     return volume_type
 

@@ -34,8 +34,8 @@ def validate_storage_type(storage_type):
     """Validate StorageType for DBInstance"""
 
     if storage_type not in VALID_STORAGE_TYPES:
-        raise ValueError("DBInstance StorageType must be one of: %s" %
-                         ", ".join(VALID_STORAGE_TYPES))
+        raise ValueError("DBInstance StorageType must be one of: {0!s}".format(
+                         ", ".join(VALID_STORAGE_TYPES)))
     return storage_type
 
 
@@ -43,8 +43,8 @@ def validate_engine(engine):
     """Validate database Engine for DBInstance """
 
     if engine not in VALID_DB_ENGINES:
-        raise ValueError("DBInstance Engine must be one of: %s" %
-                         ", ".join(VALID_DB_ENGINES))
+        raise ValueError("DBInstance Engine must be one of: {0!s}".format(
+                         ", ".join(VALID_DB_ENGINES)))
     return engine
 
 
@@ -52,8 +52,8 @@ def validate_license_model(license_model):
     """Validate LicenseModel for DBInstance"""
 
     if license_model not in VALID_LICENSE_MODELS:
-        raise ValueError("DBInstance LicenseModel must be one of: %s" %
-                         ", ".join(VALID_LICENSE_MODELS))
+        raise ValueError("DBInstance LicenseModel must be one of: {0!s}".format(
+                         ", ".join(VALID_LICENSE_MODELS)))
     return license_model
 
 

@@ -17,7 +17,7 @@ def integer(x):
     try:
         int(x)
     except (ValueError, TypeError):
-        raise ValueError("%r is not a valid integer" % x)
+        raise ValueError("{0!r} is not a valid integer".format(x))
     else:
         return x
 
@@ -25,7 +25,7 @@ def integer(x):
 def positive_integer(x):
     p = integer(x)
     if int(p) < 0:
-        raise ValueError("%r is not a positive integer" % x)
+        raise ValueError("{0!r} is not a positive integer".format(x))
     return x
 
 
@@ -33,7 +33,7 @@ def integer_range(minimum_val, maximum_val):
     def integer_range_checker(x):
         i = int(x)
         if i < minimum_val or i > maximum_val:
-            raise ValueError('Integer must be between %d and %d' % (
+            raise ValueError('Integer must be between {0:d} and {1:d}'.format(
                 minimum_val, maximum_val))
         return x
 
@@ -49,7 +49,7 @@ def network_port(x):
 
     i = integer(x)
     if int(i) < -1 or int(i) > 65535:
-        raise ValueError("network port %r must been between 0 and 65535" % i)
+        raise ValueError("network port {0!r} must been between 0 and 65535".format(i))
     return x
 
 
@@ -58,20 +58,20 @@ def s3_bucket_name(b):
     if s3_bucket_name_re.match(b):
         return b
     else:
-        raise ValueError("%s is not a valid s3 bucket name" % b)
+        raise ValueError("{0!s} is not a valid s3 bucket name".format(b))
 
 
 def encoding(encoding):
     valid_encodings = ['plain', 'base64']
     if encoding not in valid_encodings:
-        raise ValueError('Encoding needs to be one of %r' % valid_encodings)
+        raise ValueError('Encoding needs to be one of {0!r}'.format(valid_encodings))
     return encoding
 
 
 def status(status):
     valid_statuses = ['Active', 'Inactive']
     if status not in valid_statuses:
-        raise ValueError('Status needs to be one of %r' % valid_statuses)
+        raise ValueError('Status needs to be one of {0!r}'.format(valid_statuses))
     return status
 
 
@@ -80,7 +80,7 @@ def iam_names(b):
     if iam_name_re.match(b):
         return b
     else:
-        raise ValueError("%s is not a valid iam name" % b)
+        raise ValueError("{0!s} is not a valid iam name".format(b))
 
 
 def iam_path(path):
@@ -89,7 +89,7 @@ def iam_path(path):
 
     iam_path_re = compile(r'^\/.*\/$|^\/$')
     if not iam_path_re.match(path):
-        raise ValueError("%s is not a valid iam path name" % path)
+        raise ValueError("{0!s} is not a valid iam path name".format(path))
     return path
 
 

@@ -86,8 +86,8 @@ class Configuration(AWSProperty):
 def market_validator(x):
     valid_values = ['ON_DEMAND', 'SPOT']
     if x not in valid_values:
-        raise ValueError("Market must be one of: %s" %
-                         ', '.join(valid_values))
+        raise ValueError("Market must be one of: {0!s}".format(
+                         ', '.join(valid_values)))
     return x
 
 
@@ -170,8 +170,8 @@ class HadoopJarStepConfig(AWSProperty):
 def action_on_failure_validator(x):
     valid_values = ['CONTINUE', 'CONTINUE_AND_WAIT']
     if x not in valid_values:
-        raise ValueError("ActionOnFailure must be one of: %s" %
-                         ', '.join(valid_values))
+        raise ValueError("ActionOnFailure must be one of: {0!s}".format(
+                         ', '.join(valid_values)))
     return x
 
 

@@ -69,14 +69,14 @@ class ConfigurationTemplate(AWSObject):
 def validate_tier_name(name):
     valid_names = [WebServer, Worker]
     if name not in valid_names:
-        raise ValueError('Tier name needs to be one of %r' % valid_names)
+        raise ValueError('Tier name needs to be one of {0!r}'.format(valid_names))
     return name
 
 
 def validate_tier_type(tier_type):
     valid_types = [WebServerType, WorkerType]
     if tier_type not in valid_types:
-        raise ValueError('Tier type needs to be one of %r' % valid_types)
+        raise ValueError('Tier type needs to be one of {0!r}'.format(valid_types))
     return tier_type
 
 

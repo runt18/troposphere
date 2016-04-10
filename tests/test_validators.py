@@ -89,9 +89,9 @@ class TestValidators(unittest.TestCase):
                 iam_names(s)
 
     def test_iam_path(self):
-        for s in ['/%s/' % ('a'*30), '/%s/' % ('a'*510)]:
+        for s in ['/{0!s}/'.format(('a'*30)), '/{0!s}/'.format(('a'*510))]:
             iam_path(s)
-        for s in ['/%s/' % ('a'*511), '/%s/' % ('a'*1025)]:
+        for s in ['/{0!s}/'.format(('a'*511)), '/{0!s}/'.format(('a'*1025))]:
             with self.assertRaises(ValueError):
                 iam_path(s)
 

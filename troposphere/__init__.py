@@ -144,11 +144,10 @@ class BaseAWSObject(object):
             # validation. The properties of a CustomResource is not known.
             return self.properties.__setitem__(name, value)
 
-        raise AttributeError("%s object does not support attribute %s" %
-                             (type_name, name))
+        raise AttributeError("{0!s} object does not support attribute {1!s}".format(type_name, name))
 
     def _raise_type(self, name, value, expected_type):
-        raise TypeError('%s: %s.%s is %s, expected %s' % (self.__class__,
+        raise TypeError('{0!s}: {1!s}.{2!s} is {3!s}, expected {4!s}'.format(self.__class__,
                                                           self.title,
                                                           name,
                                                           type(value),
@@ -156,7 +155,7 @@ class BaseAWSObject(object):
 
     def validate_title(self):
         if not valid_names.match(self.title):
-            raise ValueError('Name "%s" not alphanumeric' % self.title)
+            raise ValueError('Name "{0!s}" not alphanumeric'.format(self.title))
 
     def validate(self):
         pass
@@ -172,7 +171,7 @@ class BaseAWSObject(object):
             if required and k not in self.properties:
                 rtype = getattr(self, 'resource_type', "<unknown type>")
                 raise ValueError(
-                    "Resource %s required in type %s" % (k, rtype))
+                    "Resource {0!s} required in type {1!s}".format(k, rtype))
         self.validate()
         # Mainly used to not have an empty "Properties".
         if self.properties:
@@ -416,7 +415,7 @@ class Template(object):
         self.conditions[name] = condition
 
     def handle_duplicate_key(self, key):
-        raise ValueError('duplicate key "%s" detected' % key)
+        raise ValueError('duplicate key "{0!s}" detected'.format(key))
 
     def _update(self, d, values):
         if isinstance(values, list):

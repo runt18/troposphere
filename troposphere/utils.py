@@ -2,7 +2,7 @@ import time
 
 
 def _tail_print(e):
-    print("%s %s %s" % (e.resource_status, e.resource_type, e.event_id))
+    print("{0!s} {1!s} {2!s}".format(e.resource_status, e.resource_type, e.event_id))
 
 
 def get_events(conn, stackname):

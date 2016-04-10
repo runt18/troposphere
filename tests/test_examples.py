@@ -52,8 +52,8 @@ def load_tests(loader, tests, pattern):
 
     for f in example_filesnames:
         testname = 'test_' + f[:-3]
-        expected_output = open('tests/examples_output/%s.template' %
-                               f[:-3]).read()
+        expected_output = open('tests/examples_output/{0!s}.template'.format(
+                               f[:-3])).read()
         test_class = create_test_class(testname, filename=examples + '/' + f,
                                        expected_output=expected_output)
         tests = loader.loadTestsFromTestCase(test_class)

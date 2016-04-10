@@ -223,8 +223,8 @@ class Bucket(AWSObject):
 
         if 'AccessControl' in kwargs:
             if kwargs['AccessControl'] not in self.access_control_types:
-                raise ValueError('AccessControl must be one of "%s"' % (
-                    ', '.join(self.access_control_types)))
+                raise ValueError('AccessControl must be one of "{0!s}"'.format((
+                    ', '.join(self.access_control_types))))
 
 
 class BucketPolicy(AWSObject):

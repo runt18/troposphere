@@ -9,23 +9,23 @@ from . import AWSObject, AWSProperty
 def attribute_type_validator(x):
     valid_types = ["S", "N", "B"]
     if x not in valid_types:
-        raise ValueError("AttributeType must be one of: %s" %
-                         valid_types.join(", "))
+        raise ValueError("AttributeType must be one of: {0!s}".format(
+                         valid_types.join(", ")))
     return x
 
 
 def key_type_validator(x):
     valid_types = ["HASH", "RANGE"]
     if x not in valid_types:
-        raise ValueError("KeyType must be one of: %s" % valid_types.join(", "))
+        raise ValueError("KeyType must be one of: {0!s}".format(valid_types.join(", ")))
     return x
 
 
 def projection_type_validator(x):
     valid_types = ["KEYS_ONLY", "INCLUDE", "ALL"]
     if x not in valid_types:
-        raise ValueError("ProjectionType must be one of: %s" %
-                         valid_types.join(", "))
+        raise ValueError("ProjectionType must be one of: {0!s}".format(
+                         valid_types.join(", ")))
     return x
 
 
